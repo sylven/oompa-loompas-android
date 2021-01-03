@@ -2,4 +2,18 @@
     <string name="app_name">Oompa Loompas</string>
     <string name="text_retry">Retry</string>
 
+    <!-- Oompa details labels -->
+    <string name="profession">Profession</string>
+    <string name="country">Country</string>
+    <string name="id">ID</string>
+    <string name="age">Age</string>
+    <string name="gender">Gender</string>
+    <string name="height">Height</string>
+    <string name="email">Email</string>
+    <string name="description">Description</string>
+    <string name="favorites">Favorites</string>
+    <string name="color">Color</string>
+    <string name="food">Food</string>
+    <string name="song">Song</string>
+    <string name="random_string">Random string</string>
 </resources>
