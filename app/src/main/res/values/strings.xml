@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Oompa Loompas</string>
+    <string name="text_retry">Retry</string>
+
 </resources>
