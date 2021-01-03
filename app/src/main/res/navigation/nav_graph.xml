@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/oompasFragment">
+
+    <fragment
+        android:id="@+id/oompasFragment"
+        android:name="app.sylven.oompaloompas.view.oompas.OompasFragment"
+        android:label="Oompa Loompas"
+        tools:layout="@layout/fragment_oompas">
+        <action
+            android:id="@+id/action_oompasFragment_to_oompaDetailFragment"
+            app:destination="@id/oompaDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/oompaDetailFragment"
+        android:name="app.sylven.oompaloompas.view.detail.OompaDetailFragment"
+        android:label="{oompaDetailFragmentLabel}"
+        tools:layout="@layout/fragment_oompa_detail">
+        <argument
+            android:name="oompaDetailFragmentLabel"
+            app:argType="string" />
+        <argument
+            android:name="oompaDetailFragmentModel"
+            app:argType="app.sylven.oompaloompas.model.OompaLoompaPageItem" />
+    </fragment>
+</navigation>
