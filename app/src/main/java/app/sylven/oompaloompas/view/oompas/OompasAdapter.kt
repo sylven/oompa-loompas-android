@@ -7,12 +7,12 @@ import android.widget.TextView
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
 import app.sylven.oompaloompas.R
-import app.sylven.oompaloompas.model.OompaLoompaPageItem
 import app.sylven.oompaloompas.databinding.ItemOompaBinding
+import app.sylven.oompaloompas.model.OompaLoompaPageItem
 import app.sylven.oompaloompas.util.DiffUtilCallBack
 import coil.load
 
-class OompasAdapter(private val listener: (OompaLoompaPageItem) -> Unit) :
+class OompasAdapter(private val listener: OompaAdapterListener) :
     PagingDataAdapter<OompaLoompaPageItem, OompasAdapter.OompaViewHolder>(DiffUtilCallBack()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OompaViewHolder {
@@ -31,7 +31,10 @@ class OompasAdapter(private val listener: (OompaLoompaPageItem) -> Unit) :
         private val ivGender: ImageView = itemBinding.ivGender
         private val tvProfession: TextView = itemBinding.tvProfession
 
-        fun bindPost(oompaLoompaPageItem: OompaLoompaPageItem, listener: (OompaLoompaPageItem) -> Unit) {
+        fun bindPost(
+            oompaLoompaPageItem: OompaLoompaPageItem,
+            listener: OompaAdapterListener
+        ) {
             with(oompaLoompaPageItem) {
                 tvName.text = ("$id $first_name $last_name").toUpperCase()
                 imageView.load(image) {
@@ -44,9 +47,13 @@ class OompasAdapter(private val listener: (OompaLoompaPageItem) -> Unit) :
                 ivGender.setImageResource(if (gender == "F") R.drawable.ic_icon_female else R.drawable.ic_icon_male)
                 tvProfession.text = profession
 
-                itemView.setOnClickListener { listener(oompaLoompaPageItem) }
+                itemView.setOnClickListener { listener.onOompaSelected(oompaLoompaPageItem) }
             }
         }
+    }
+
+    interface OompaAdapterListener {
+        fun onOompaSelected(oompa: OompaLoompaPageItem)
     }
 
 }

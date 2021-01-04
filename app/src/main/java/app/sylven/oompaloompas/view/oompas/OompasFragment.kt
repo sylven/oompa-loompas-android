@@ -9,11 +9,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import app.sylven.oompaloompas.databinding.FragmentOompasBinding
+import app.sylven.oompaloompas.model.OompaLoompaPageItem
 import app.sylven.oompaloompas.viewModel.OompasViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-class OompasFragment : Fragment() {
+class OompasFragment : Fragment(), OompasAdapter.OompaAdapterListener {
 
     private lateinit var viewDataBinding: FragmentOompasBinding
     private val oompasViewModel: OompasViewModel by lazy {
@@ -28,11 +29,7 @@ class OompasFragment : Fragment() {
     ): View? {
         viewDataBinding = FragmentOompasBinding.inflate(inflater, container, false)
 
-        oompaLoompasAdapter = OompasAdapter {
-            findNavController().navigate(OompasFragmentDirections
-                .actionOompasFragmentToOompaDetailFragment(
-                    it.first_name+" "+it.last_name, it))
-        }
+        oompaLoompasAdapter = OompasAdapter(this)
 
         setupViews()
         fetchOompas()
@@ -54,6 +51,12 @@ class OompasFragment : Fragment() {
             header = OompasLoadingAdapter { oompaLoompasAdapter.retry() },
             footer = OompasLoadingAdapter { oompaLoompasAdapter.retry() }
         )
+    }
+
+    override fun onOompaSelected(oompa: OompaLoompaPageItem) {
+        findNavController().navigate(OompasFragmentDirections
+            .actionOompasFragmentToOompaDetailFragment(
+                oompa.first_name+" "+oompa.last_name, oompa))
     }
 
 }
