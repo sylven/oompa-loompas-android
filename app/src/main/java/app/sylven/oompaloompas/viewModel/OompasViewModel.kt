@@ -6,11 +6,11 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import app.sylven.oompaloompas.model.OompaLoompaPageItem
-import app.sylven.oompaloompas.repository.OompaLoompasRepository
+import app.sylven.oompaloompas.repository.DefaultOompasRepository
 import kotlinx.coroutines.flow.Flow
 
 class OompasViewModel(application: Application) : AndroidViewModel(application) {
-    private val oompaLoompasRepository = OompaLoompasRepository(application)
+    private val oompaLoompasRepository = DefaultOompasRepository(application)
     private lateinit var oompaLoompasResponse: Flow<PagingData<OompaLoompaPageItem>>
 
     fun fetchOompas(): Flow<PagingData<OompaLoompaPageItem>> {

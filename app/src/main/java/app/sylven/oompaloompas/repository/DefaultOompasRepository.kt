@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
-class OompaLoompasRepository(context: Context) {
+class DefaultOompasRepository(context: Context) {
     
     private val oompaService = ApiFactory.oompaApi
 
@@ -27,7 +27,7 @@ class OompaLoompasRepository(context: Context) {
                 prefetchDistance = 18
             )
         ) {
-            OompaLoompasPagingSource(
+            OompasPagingSource(
                 oompaService = oompaService
             )
         }.flow.flowOn(Dispatchers.IO)

@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import app.sylven.oompaloompas.model.OompaLoompa
 import app.sylven.oompaloompas.model.OompaLoompaPageItem
-import app.sylven.oompaloompas.repository.OompaLoompasRepository
+import app.sylven.oompaloompas.repository.DefaultOompasRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.flow
 class OompaDetailViewModel(application: Application, oompa: OompaLoompaPageItem) :
     AndroidViewModel(application) {
 
-    private val oompaLoompasRepository = OompaLoompasRepository(application)
+    private val oompaLoompasRepository = DefaultOompasRepository(application)
     private var selectedOompa: Flow<OompaLoompaPageItem>
     private var selectedOompaId = 1
 

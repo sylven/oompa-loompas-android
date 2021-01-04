@@ -6,7 +6,7 @@ import app.sylven.oompaloompas.model.OompaLoompaPageItem
 import retrofit2.HttpException
 import java.io.IOException
 
-class OompaLoompasPagingSource(
+class OompasPagingSource(
     private val oompaService: OompaApi
 ) : PagingSource<Int, OompaLoompaPageItem>() {
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, OompaLoompaPageItem> {
