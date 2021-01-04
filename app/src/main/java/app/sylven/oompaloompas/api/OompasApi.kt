@@ -7,7 +7,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface OompaApi {
+interface OompasApi {
 
     @GET("oompa-loompas")
     suspend fun getOompaLoompas(

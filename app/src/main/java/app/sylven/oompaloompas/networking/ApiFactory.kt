@@ -2,7 +2,7 @@ package app.sylven.oompaloompas.networking
 
 import app.sylven.oompaloompas.AppConstants
 import app.sylven.oompaloompas.BuildConfig
-import app.sylven.oompaloompas.api.OompaApi
+import app.sylven.oompaloompas.api.OompasApi
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -32,6 +32,6 @@ object ApiFactory {
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .build()
 
-    val oompaApi: OompaApi = retrofit().create(OompaApi::class.java)
+    val oompasApi: OompasApi = retrofit().create(OompasApi::class.java)
 
 }
