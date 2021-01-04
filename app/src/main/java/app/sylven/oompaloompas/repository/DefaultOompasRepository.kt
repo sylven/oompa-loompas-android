@@ -13,12 +13,12 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
-class DefaultOompasRepository(context: Context) {
+class DefaultOompasRepository(context: Context) : OompasRepository {
     
     private val oompaService = ApiFactory.oompaApi
 
     @OptIn(ExperimentalPagingApi::class)
-    fun fetchOompaLoompas(): Flow<PagingData<OompaLoompaPageItem>> {
+    override fun fetchOompaLoompas(): Flow<PagingData<OompaLoompaPageItem>> {
         return Pager(
             PagingConfig(
                 pageSize = 25,
@@ -33,7 +33,7 @@ class DefaultOompasRepository(context: Context) {
         }.flow.flowOn(Dispatchers.IO)
     }
 
-    fun fetchOompaLoompa(id: Int): Flow<OompaLoompa> {
+    override fun fetchOompaLoompa(id: Int): Flow<OompaLoompa> {
         return flow {
             oompaService.getOompaLoompa(id).body()?.let { emit(it) }
         }.flowOn(Dispatchers.IO)
