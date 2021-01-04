@@ -53,7 +53,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
-    // Moshi - Convert between JSON and Models
+    // Moshi - Parsing JSON data
     implementation "com.squareup.moshi:moshi-kotlin:$moshiVersion"
     kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshiVersion"
 
@@ -62,18 +62,18 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-moshi:$retrofit2_version"
     implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
 
-    // Okhttp3 - Build network requests
+    // Okhttp3 - Creating HTTP requests with all the proper headers
     implementation "com.squareup.okhttp3:okhttp:$okhttp3_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3_version"
 
-    // Kotlin Coroutines
+    // Kotlin Coroutines - Making non-blocking (main thread) network requests.
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutineVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutineVersion"
 
-    // Coil - Image loading
+    // Coil - Downloading an image from the internet and setting it into an ImageView.
     implementation "io.coil-kt:coil:$coil_version"
 
-    // Paging - Infinite loading data from network
+    // Paging - Infinite loading data
     implementation "androidx.paging:paging-runtime-ktx:$paging_version"
 
     // Navigation component
