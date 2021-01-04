@@ -8,11 +8,10 @@ import app.sylven.oompaloompas.repository.DefaultOompasRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-
 class OompaDetailViewModel(application: Application, oompa: OompaLoompaPageItem) :
     AndroidViewModel(application) {
 
-    private val oompaLoompasRepository = DefaultOompasRepository(application)
+    private val oompaLoompasRepository = DefaultOompasRepository()
     private var selectedOompa: Flow<OompaLoompaPageItem>
     private var selectedOompaId = 1
 

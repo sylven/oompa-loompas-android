@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import app.sylven.oompaloompas.databinding.FragmentOompasBinding
@@ -13,13 +12,12 @@ import app.sylven.oompaloompas.model.OompaLoompaPageItem
 import app.sylven.oompaloompas.viewModel.OompasViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class OompasFragment : Fragment(), OompasAdapter.OompaAdapterListener {
 
     private lateinit var viewDataBinding: FragmentOompasBinding
-    private val oompasViewModel: OompasViewModel by lazy {
-        ViewModelProvider(this).get(OompasViewModel::class.java)
-    }
+    private val oompasViewModel: OompasViewModel by viewModel()
     private lateinit var oompaLoompasAdapter: OompasAdapter
 
     override fun onCreateView(

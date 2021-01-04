@@ -1,6 +1,5 @@
 package app.sylven.oompaloompas.repository
 
-import android.content.Context
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
@@ -13,7 +12,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
-class DefaultOompasRepository(context: Context) : OompasRepository {
+class DefaultOompasRepository : OompasRepository {
     
     private val oompasService = ApiFactory.oompasApi
 

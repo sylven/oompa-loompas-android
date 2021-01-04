@@ -1,6 +1,5 @@
 package app.sylven.oompaloompas.view.detail
 
-import android.app.Application
 import android.os.Build
 import android.os.Bundle
 import android.text.Html
@@ -9,17 +8,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import app.sylven.oompaloompas.R
 import app.sylven.oompaloompas.databinding.FragmentOompaDetailBinding
 import app.sylven.oompaloompas.model.OompaLoompa
 import app.sylven.oompaloompas.model.OompaLoompaPageItem
 import app.sylven.oompaloompas.viewModel.OompaDetailViewModel
-import app.sylven.oompaloompas.viewModel.OompaDetailViewModelFactory
 import coil.load
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import org.koin.android.viewmodel.ext.android.getViewModel
+import org.koin.core.parameter.parametersOf
 
 class OompaDetailFragment : Fragment() {
 
@@ -34,12 +33,8 @@ class OompaDetailFragment : Fragment() {
     ): View? {
         viewDataBinding = FragmentOompaDetailBinding.inflate(inflater, container, false)
 
-        val application: Application = requireActivity().application
         oompa = OompaDetailFragmentArgs.fromBundle(requireArguments()).oompaDetailFragmentModel
-        val factory = OompaDetailViewModelFactory(application, oompa)
-        viewModel = ViewModelProvider(this, factory).get(
-            OompaDetailViewModel::class.java
-        )
+        viewModel = getViewModel { parametersOf(oompa) }
 
         fetchOompaInfo()
 
