@@ -2,8 +2,8 @@
 
 Android app with Master/Detail flow written in Kotlin.
 
-API Endpoints:
-https://2q2woep105.execute-api.eu-west-1.amazonaws.com/napptilus/oompa-loompas?page=1
+API Endpoints:  
+https://2q2woep105.execute-api.eu-west-1.amazonaws.com/napptilus/oompa-loompas?page=1  
 https://2q2woep105.execute-api.eu-west-1.amazonaws.com/napptilus/oompa-loompas/1
 
 
@@ -28,7 +28,7 @@ As you may know, Android developers today have many async tools at hand. These i
 If you’ve worked with Rx, then you know it takes a lot of effort to get to know it enough, to be able to use it safely. On the other hand, AsyncTasks and Threads can easily introduce leaks and memory overhead. Finally, relying on all these APIs, which use callbacks, can introduce a ton of code. Not only that, but the code can become unreadable, as you introduce more callbacks.
 
 ### Other
-- Convention for property names for backing properties https://kotlinlang.org/docs/reference/coding-conventions.html#property-names
+- Convention for property names for backing properties - https://kotlinlang.org/docs/reference/coding-conventions.html#property-names
 
 ### Networking API calls in Android using Retrofit2 and Kotlin Coroutines
 1. Android Networking in 2019 — Retrofit with Kotlin’s Coroutines - https://android.jlelse.eu/android-networking-in-2019-retrofit-with-kotlins-coroutines-aefe82c4d777
